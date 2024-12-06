@@ -20,4 +20,13 @@ describe("StringCalculator --> add", () => {
   it("should return the sum of the numbers if the custom delimiter is passed", () => {
     expect(StringCalculator.add("//;\n4;5")).toBe(9);
   });
+
+  it("should throw an error if the negative number is passed into add function", () => {
+    try {
+      StringCalculator.add("//;\n4;-5");
+    } catch (error: any) {
+      expect(error).toBeInstanceOf(Error);
+      expect(error.message).toBe("Negative numbers not allowed: -5");
+    }
+  });
 });
