@@ -29,4 +29,13 @@ describe("StringCalculator --> add", () => {
       expect(error.message).toBe("Negative numbers not allowed: -5");
     }
   });
+
+  it("should throw an error with all the negative number if the negative numbers are passed into add function", () => {
+    try {
+      StringCalculator.add("//;\n4;-5;-6");
+    } catch (error: any) {
+      expect(error).toBeInstanceOf(Error);
+      expect(error.message).toBe("Negative numbers not allowed: -5,-6");
+    }
+  });
 });
