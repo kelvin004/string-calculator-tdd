@@ -12,4 +12,8 @@ describe("StringCalculator --> add", () => {
   it("should return the sum of the numbers if the string has more than one number", () => {
     expect(StringCalculator.add("7,9")).toBe(16);
   });
+
+  it("should return the sum of the numbers if the string has numbers passed with new line and comma both", () => {
+    expect(StringCalculator.add("5\n7,8")).toBe(20);
+  });
 });
