@@ -16,4 +16,8 @@ describe("StringCalculator --> add", () => {
   it("should return the sum of the numbers if the string has numbers passed with new line and comma both", () => {
     expect(StringCalculator.add("5\n7,8")).toBe(20);
   });
+
+  it("should return the sum of the numbers if the custom delimiter is passed", () => {
+    expect(StringCalculator.add("//;\n4;5")).toBe(9);
+  });
 });
