@@ -38,4 +38,8 @@ describe("StringCalculator --> add", () => {
       expect(error.message).toBe("Negative numbers not allowed: -5,-6");
     }
   });
+
+  it("should return the sum of the numbers if the numbers are passed with delimiter of new line", () => {
+    expect(StringCalculator.add("5\n6")).toBe(11);
+  });
 });
