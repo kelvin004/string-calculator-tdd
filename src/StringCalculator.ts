@@ -20,7 +20,14 @@ export class StringCalculator {
     let sumOfNumbers = 0;
 
     // Loop through all the numbers and add into variable
-    numbersArray.forEach((value) => (sumOfNumbers += parseInt(value)));
+    numbersArray.forEach((value) => {
+      const number = parseInt(value);
+
+      if (number < 0)
+        throw new Error(`Negative numbers not allowed: ${number}`);
+
+      return (sumOfNumbers += number);
+    });
 
     return sumOfNumbers;
   }
