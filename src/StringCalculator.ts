@@ -4,8 +4,8 @@ export class StringCalculator {
       return 0;
     }
 
-    // Grab all the numbers in array to do the summation
-    const numbersArray = numbers.split(",");
+    // split all the numbers if there is ", OR \n" characters
+    const numbersArray = numbers.split(/,|\n/);
     let sumOfNumbers = 0;
 
     // Loop through all the numbers and add into variable
