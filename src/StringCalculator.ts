@@ -18,17 +18,25 @@ export class StringCalculator {
     // split all the numbers if there is ", OR \n" characters
     const numbersArray = numbers.split(delimiters);
     let sumOfNumbers = 0;
+    let negativeNumbers = "";
 
     // Loop through all the numbers and add into variable
     numbersArray.forEach((value) => {
       const number = parseInt(value);
 
-      if (number < 0)
-        throw new Error(`Negative numbers not allowed: ${number}`);
+      // combine all the negative numbers into string and then throw error outside of the loop
+      if (number < 0) {
+        negativeNumbers += `,${number}`;
+      }
 
       return (sumOfNumbers += number);
     });
 
+    if (negativeNumbers.length > 0) {
+      throw new Error(
+        `Negative numbers not allowed: ${negativeNumbers.slice(1)}`
+      );
+    }
     return sumOfNumbers;
   }
 }
